@@ -40,6 +40,7 @@ class InversableStableDiffusionPipeline(ModifiedStableDiffusionPipeline):
         scheduler,
         safety_checker,
         feature_extractor,
+        image_encoder,
         requires_safety_checker: bool = True,
     ):
         super(InversableStableDiffusionPipeline, self).__init__(vae,
@@ -49,6 +50,7 @@ class InversableStableDiffusionPipeline(ModifiedStableDiffusionPipeline):
                 scheduler,
                 safety_checker,
                 feature_extractor,
+                image_encoder,
                 requires_safety_checker)
 
         self.forward_diffusion = partial(self.backward_diffusion, reverse_process=True)
@@ -60,7 +62,7 @@ class InversableStableDiffusionPipeline(ModifiedStableDiffusionPipeline):
         batch_size = 1
         device = self._execution_device
 
-        num_channels_latents = self.unet.in_channels
+        num_channels_latents = self.unet.config.in_channels
 
         latents = self.prepare_latents(
             batch_size,
