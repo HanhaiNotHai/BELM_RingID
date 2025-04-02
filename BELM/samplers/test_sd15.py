@@ -21,7 +21,7 @@ import diffusers
 from diffusers import StableDiffusionPipeline, DDIMScheduler
 from torchvision import transforms
 
-from samplers.utils import PipelineLike, AestheticMLP
+from .utils import PipelineLike, AestheticMLP
 from PIL import Image
 from functools import partial
 

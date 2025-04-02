@@ -5,16 +5,16 @@ import os
 import json
 import argparse
 sys.path.append(os.getcwd())
-from samplers import test_sd15, BELM, BDIA, edict, DDIM
+from ..samplers import test_sd15, BELM, BDIA, edict, DDIM
 from PIL import Image
 import torchvision.transforms as transforms
 import numpy as np
 import glob
 from diffusers import StableDiffusionPipeline, DDIMScheduler
-from samplers.test_sd15 import  center_crop, load_im_into_format_from_path, pil_to_latents
-from samplers.utils import PipelineLike
+from ..samplers.test_sd15 import  center_crop, load_im_into_format_from_path, pil_to_latents
+from ..samplers.utils import PipelineLike
 
-from samplers.test_sd15 import  center_crop, load_im_into_format_from_path, pil_to_latents
+from ..samplers.test_sd15 import  center_crop, load_im_into_format_from_path, pil_to_latents
 def get_jpg_paths(directory):
     jpg_paths = []
     for root, dirs, files in os.walk(directory):
