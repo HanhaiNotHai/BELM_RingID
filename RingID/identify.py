@@ -8,12 +8,12 @@ import pandas as pd
 from collections import OrderedDict
 from prettytable import PrettyTable
 
-from inverse_stable_diffusion import InversableStableDiffusionPipeline
+from .inverse_stable_diffusion import InversableStableDiffusionPipeline
 from diffusers import DPMSolverMultistepScheduler
-import open_clip
+from . import open_clip
 
-from utils import *
-from io_utils import *
+from .utils import *
+from .io_utils import *
 
 def parse_args():
     parser = argparse.ArgumentParser(description='multiple-key identification')
