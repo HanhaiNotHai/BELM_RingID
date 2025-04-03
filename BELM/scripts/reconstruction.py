@@ -19,7 +19,7 @@ def get_jpg_paths(directory):
     jpg_paths = []
     for root, dirs, files in os.walk(directory):
         for file in files:
-            if file.endswith(".jpg"):
+            if file.endswith(('.jpg', '.png')):
                 jpg_paths.append(os.path.abspath(os.path.join(root, file)))
     return jpg_paths
 def transform_image_array(image_array):

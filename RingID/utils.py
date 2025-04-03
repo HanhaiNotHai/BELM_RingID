@@ -1,4 +1,5 @@
 import torch
+from torch import Tensor
 from torchvision import transforms
 from datasets import load_dataset
 
@@ -259,7 +260,7 @@ def fft(input_tensor):
     assert len(input_tensor.shape) == 4
     return torch.fft.fftshift(torch.fft.fft2(input_tensor), dim = (-1, -2))
 
-def ifft(input_tensor):
+def ifft(input_tensor) -> Tensor:
     assert len(input_tensor.shape) == 4
     return torch.fft.ifft2(torch.fft.ifftshift(input_tensor, dim = (-1, -2)))
 
