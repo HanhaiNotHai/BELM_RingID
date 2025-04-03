@@ -2,6 +2,7 @@ from functools import partial
 from typing import Callable, List, Optional, Union, Tuple
 
 import torch
+from torch import Tensor
 from transformers import CLIPFeatureExtractor, CLIPTextModel, CLIPTokenizer
 
 from diffusers.models import AutoencoderKL, UNet2DConditionModel
@@ -55,7 +56,7 @@ class InversableStableDiffusionPipeline(ModifiedStableDiffusionPipeline):
 
         self.forward_diffusion = partial(self.backward_diffusion, reverse_process=True)
     
-    def get_random_latents(self, latents=None, height=512, width=512, generator=None):
+    def get_random_latents(self, latents=None, height=512, width=512, generator=None) -> Tensor:
         height = height or self.unet.config.sample_size * self.vae_scale_factor
         width = width or self.unet.config.sample_size * self.vae_scale_factor
 

@@ -150,10 +150,10 @@ def intermediate_to_latent(sd_pipe, sd_params, intermediate=None, intermediate_s
             coef_eps = sigma_s - sigma_t * coef_xt
             if i == freeze_step:
                 if intermediate_second is not None:
-                    print('have intermediate_second')
+                    # print('have intermediate_second')
                     intermediate = intermediate_second.clone()
                 else:
-                    print('dont have intermediate_second')
+                    # print('dont have intermediate_second')
                     intermediate = coef_xt * intermediate + coef_eps * noise_pred
             else:
                 # calculate i-1

@@ -6,15 +6,15 @@ __dir__ = os.path.dirname(os.path.abspath(__file__))
 sys.path = [os.path.abspath(os.path.join(__dir__, '../../../libs'))] + sys.path
 sys.path = [os.path.abspath(os.path.join(__dir__, '../../../libs/sd_scripts'))] + sys.path
 
-env_root = '.'
-os.environ['HF_HOME'] = os.path.join(env_root, '.cache')
-os.environ['HUGGINGFACE_HUB_CACHE'] = os.path.join(env_root, '.cache/hub')
+# env_root = '.'
+# os.environ['HF_HOME'] = os.path.join(env_root, '.cache')
+# os.environ['HUGGINGFACE_HUB_CACHE'] = os.path.join(env_root, '.cache/hub')
 # os.environ['TRANSFORMERS_CACHE'] = os.path.join(env_root, '.cache/transformers')
-os.environ['TORCH_HOME'] = os.path.join(env_root, '.cache/torch')
-os.environ['TORCH_EXTENSIONS_DIR'] = os.path.join(env_root, '.cache/torch_extensions')
-os.environ['PYTORCH_KERNEL_CACHE_PATH'] = os.path.join(env_root, '.cache/torch')
-os.environ['XDG_CACHE_HOME'] = os.path.join(env_root, '.cache/hub')
-os.environ['TRITON_CACHE_DIR'] = os.path.join(env_root, '.cache/triton/autotune')
+# os.environ['TORCH_HOME'] = os.path.join(env_root, '.cache/torch')
+# os.environ['TORCH_EXTENSIONS_DIR'] = os.path.join(env_root, '.cache/torch_extensions')
+# os.environ['PYTORCH_KERNEL_CACHE_PATH'] = os.path.join(env_root, '.cache/torch')
+# os.environ['XDG_CACHE_HOME'] = os.path.join(env_root, '.cache/hub')
+# os.environ['TRITON_CACHE_DIR'] = os.path.join(env_root, '.cache/triton/autotune')
 
 import torch
 import diffusers
