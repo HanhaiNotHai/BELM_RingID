@@ -1,4 +1,5 @@
 import torch
+from tqdm import tqdm
 from .test_sd15 import to_pil
 
 def rev_forward(sd_pipe, sd_params, latents=None, n_mid = 0, gamma = 0.5 ):
@@ -33,7 +34,7 @@ def rev_forward(sd_pipe, sd_params, latents=None, n_mid = 0, gamma = 0.5 ):
     xis.append(latents)
     prev_noise = None
     with torch.no_grad():
-        for i, t in enumerate(timesteps):
+        for i, t in enumerate(tqdm(timesteps, leave=False)):
             # print('###', i)
             latent_model_input = torch.cat([latents] * 2) if do_classifier_free_guidance else latents
             noise_pred = sd_pipe.unet(
@@ -106,7 +107,7 @@ def intermediate_to_latent(sd_pipe, sd_params, intermediate=None, intermediate_s
     xis.append(intermediate)
     prev_noise = None
     with torch.no_grad():
-        for i, t in enumerate(timesteps):
+        for i, t in enumerate(tqdm(timesteps, leave=False)):
             if i < freeze_step:
                 continue
             # print('###', i)
