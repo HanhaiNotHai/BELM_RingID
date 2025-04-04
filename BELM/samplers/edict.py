@@ -1,4 +1,5 @@
 import torch
+from tqdm import tqdm
 from .test_sd15 import to_pil
 
 def rev_forward(sd_pipe, sd_params, latents=None, p = 0.93):
@@ -124,7 +125,7 @@ def intermediate_to_latent(sd_pipe, sd_params, x_intermediate=None, y_intermedia
     xis.append(x_latents)
     prev_noise = None
     with torch.no_grad():
-        for i, t in enumerate(timesteps):
+        for i, t in enumerate(tqdm(timesteps, leave=False)):
             if i < freeze_step:
                 continue
             # print('###', i)
@@ -212,7 +213,7 @@ def latent_to_intermediate(sd_pipe, sd_params, latent=None, p = 0.93, freeze_ste
     xis.append(x_latents)
     prev_noise = None
     with torch.no_grad():
-        for i, t in enumerate(timesteps):
+        for i, t in enumerate(tqdm(timesteps, leave=False)):
             if i >= num_inference_steps - freeze_step:
                 continue
             # print('###', i)
